@@ -22,4 +22,4 @@ El grafo tiene **57 nodos**, de los cuales **10 son nodos de tipo _location_**, 
 
 Estos colores se utilizan en las visualizaciones del grafo para distinguir rápidamente cada ubicación.
 
-![Grafo Algoritmia con nodos](imagenes/grafo_mercado_algoritmia.png)
+![Grafo Algoritmia con nodos](/Users/juanpablomadriz/Desktop/Repositorios/mini_waze/imagenes/grafo_marcado_algoritmia.png)
