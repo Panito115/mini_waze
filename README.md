@@ -7,7 +7,7 @@ Se escogió la Zona 1 como área de practica, abarcando específicamente desde l
 ## Grafo de ubicaciones
 
 En este repositorio ya se incluye el grafo completo, con sus nodos y direcciones (aristas dirigidas).  
-El grafo tiene **57 nodos**, de los cuales **10 son nodos de tipo _location_**, cada uno identificado por un color:
+El grafo tiene **61 nodos**, de los cuales **10 son nodos de tipo _location_**, cada uno identificado por un color:
 
 - **Rojo**: Congreso  
 - **Verde**: Palacio Nacional  
