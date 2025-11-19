@@ -23,3 +23,14 @@ El grafo tiene **57 nodos**, de los cuales **10 son nodos de tipo _location_**, 
 Estos colores se utilizan en las visualizaciones del grafo para distinguir rápidamente cada ubicación.
 
 ![Grafo Algoritmia con nodos](imagenes/grafo_marcado_algoritmia.png)
+
+### Pesos del grafo
+- Los **pesos base** de las aristas están en el rango **1 a 5**.  
+- Estos valores representan el costo o tiempo de movimiento **sin tráfico**.
+
+### Lógica de tráfico
+Cuando se activa el modo **con tráfico**:
+- Los pesos pueden **incrementarse dinámicamente**.  
+- Cada peso puede **duplicarse**, alcanzando un máximo de **10**.  
+- Esto permite simular rutas más lentas, congestión y variabilidad realista en el sistema.
+![Grafo completo](imagenes/grafo_completo.png)
