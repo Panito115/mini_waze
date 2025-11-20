@@ -133,9 +133,36 @@ for fila_idx, fila in enumerate(filas):
 # aca comienza a dibujar el grafo con matplot
 plt.figure(figsize=(14, 8))
 
+# se agregan colores a los nodos
+colores = []
+for node in G.nodes():
+    if node == 5:
+        colores.append("yellow") # casa presidencial
+    elif node in [8]:
+        colores.append("lightgreen") # bar de vic
+    elif node in [29]:
+        colores.append("grey") # almacen el cisne
+    elif node in [21]:
+        colores.append("purple") # restaurante long wah
+    elif node in [25]:
+        colores.append("green") # palacio nacional
+    elif node in [33]:
+        colores.append("lightblue") # plaza de la constitucion
+    elif node in [34]:
+        colores.append("blue") # mercado central de guateamal
+    elif node in [52]:
+        colores.append("brown") # plaza vivar
+    elif node in [53]:
+        colores.append("red") # congreso de la republica
+    elif node in [57]:
+        colores.append("pink") # panaderia berna
+    else:
+        colores.append("lightgray")
+
 nx.draw(
     G,
     pos,
+    node_color=colores,
     with_labels=True,
     node_size=500,
     font_size=7,
