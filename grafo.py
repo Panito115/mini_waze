@@ -185,3 +185,4 @@ plt.show()
 
 print("Total nodos:", G.number_of_nodes())
 print("Total aristas:", G.number_of_edges())
+
