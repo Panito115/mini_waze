@@ -2,7 +2,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from grafo import G, pos
 
-# Elegimos dos nodos que estén relativamente alejados
+
 origen = 40
 final = 1
 
@@ -18,12 +18,12 @@ print(f"Peso total: {peso_total}\n")
 plt.figure(figsize=(14, 8))
 nx.draw(G, pos, node_size=300, node_color="lightgray", edge_color="gray", with_labels=True, font_size=7)
 
-# Extraer las aristas de la ruta
+# aristas de la ruta
 aristas_camino = list(zip(camino[:-1], camino[1:]))
 
-# Dibujar la ruta en rojo
-nx.draw_networkx_nodes(G, pos, nodelist=camino, node_color="red", node_size=400)
-nx.draw_networkx_edges(G, pos, edgelist=aristas_camino, edge_color="red", width=3)
+# Dibujar la ruta
+nx.draw_networkx_nodes(G, pos, nodelist=camino, node_color="blue", node_size=400)
+nx.draw_networkx_edges(G, pos, edgelist=aristas_camino, edge_color="blue", width=3)
 
 # Etiquetas de pesos
 edge_labels = nx.get_edge_attributes(G, 'weight')
