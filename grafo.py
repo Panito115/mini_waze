@@ -1,12 +1,12 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 
-G = nx.DiGraph()
-# se agregan todos los nodos
-nodos_1_61 = list(range(1, 62))
+G = nx.DiGraph() # funcion dentro de nx que hace el grafico dirigo
 
+nodos_1_61 = list(range(1, 62))
 G.add_nodes_from(nodos_1_61)
-# se agrega la dirección y el peso
+
+# se agrega la dirección de nodos y sus pesos
 G.add_edge(2, 1, weight=1)
 G.add_edge(3, 2, weight=3)
 G.add_edge(4, 3, weight=5)
@@ -17,7 +17,7 @@ G.add_edge(8, 7, weight=1)
 G.add_edge(9, 8, weight=3)
 G.add_edge(10, 9, weight=2)
 G.add_edge(11, 1, weight=1)
-G.add_edge(12, 11, weight=1) #
+G.add_edge(12, 11, weight=1)
 G.add_edge(14, 3, weight=1)
 G.add_edge(4, 15, weight=4)
 G.add_edge(6, 16, weight=5)
@@ -33,7 +33,7 @@ G.add_edge(17, 18, weight=1)
 G.add_edge(18, 19, weight=3)
 G.add_edge(20, 12, weight=5)
 G.add_edge(59, 60, weight=1)
-G.add_edge(2, 13, weight=1)#
+G.add_edge(2, 13, weight=1)
 G.add_edge(13, 22, weight=1)
 G.add_edge(23, 14, weight=2)
 G.add_edge(15, 24, weight=1)
@@ -96,25 +96,42 @@ G.add_edge(53, 48, weight=1)
 G.add_edge(49, 50, weight=2)
 G.add_edge(50, 51, weight=2)
 G.add_edge(55, 54, weight=5)
-G.add_edge(56,55, weight=2)
+G.add_edge(56, 55, weight=2)
 G.add_edge(57, 56, weight=4)
 G.add_edge(58, 57, weight=1)
 G.add_edge(59, 58, weight=3)
 G.add_edge(60, 59, weight=2)
 G.add_edge(61, 60, weight=2)
 
+# se crea la ciudad visualmente
+filas = [
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],          
+    [11],
+    [12,13,14,15,16,17,18,19],
+    [29],          
+    [20,21,22,23,24,25,26,27,28],          
+    [30,31,32,33,34],          
+    [35,36,37,38,39,40,41],       
+    [42,43,44,45,46,47,48],
+    [49,50,51,52,53],
+    [54,55,56,57,58,59,60,61],           
+]
 
-
-# lo crea tipo ciudad
 pos = {}
-cols = 10
+ancho_total = 10.0   # cantidad de nodos por anchos
 
-for idx, node in enumerate(G.nodes()):
-    x = idx % cols
-    y = -(idx // cols)
-    pos[node] = (x, y)
+for fila_idx, fila in enumerate(filas):
+    y = -fila_idx            # cada fila un poquito más abajo
+    n = len(fila)
+    if n == 1:
+        xs = [ancho_total / 2.0]
+    else:
+        xs = [i * (ancho_total / (n - 1)) for i in range(n)]
 
-# aca comienza a dibujarlo
+    for x, node in zip(xs, fila):
+        pos[node] = (x, y)
+
+# aca comienza a dibujar el grafo con matplot
 plt.figure(figsize=(14, 8))
 
 nx.draw(
@@ -128,7 +145,6 @@ nx.draw(
     arrowsize=15
 )
 
-# Etiquetas de pesos
 edge_labels = nx.get_edge_attributes(G, "weight")
 nx.draw_networkx_edge_labels(
     G,
