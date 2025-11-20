@@ -123,7 +123,7 @@ for fila_idx, fila in enumerate(filas):
     y = -fila_idx            # cada fila un poquito más abajo
     n = len(fila)
     if n == 1:
-        xs = [ancho_total / 2.0]
+        xs = [ancho_total / 2]
     else:
         xs = [i * (ancho_total / (n - 1)) for i in range(n)]
 
