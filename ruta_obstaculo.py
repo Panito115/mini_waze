@@ -15,7 +15,7 @@ def ruta_con_obstaculo(G, origen, obstaculo, destino):
 
     # verificar si hay ruta
     if not nx.has_path(G2, origen, destino):
-        print(f"No hay ruta disponible evitando el obstáculo {obstaculo} y sus alrededores.")
+        print(f"No hay rutas disponibles evitando el punto {obstaculo} y sus alrededores indmediatos.")
         return None
 
     ruta = nx.shortest_path(G2, source=origen, target=destino, weight='weight')
@@ -31,11 +31,11 @@ if __name__ == "__main__":
 
     resultado = ruta_con_obstaculo(G, origen, obstaculo, destino)
     if resultado is None:
-        raise SystemExit("No se pudo calcular la ruta.")
+        raise SystemExit("Error, no se pudo calcular la ruta.")
 
     ruta, peso, bloqueados = resultado
 
-    print(f"Ruta evitando obstáculo {obstaculo}: {ruta}")
+    print(f"Ruta evitando nodo {obstaculo}: {ruta}")
     print(f"Peso total: {peso}")
     print(f"Nodos bloqueados: {bloqueados}")
 
@@ -55,7 +55,7 @@ if __name__ == "__main__":
     edge_labels = nx.get_edge_attributes(G, 'weight')
     nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_size=6)
 
-    plt.title(f"Ruta evitando nodo {obstaculo} (peso total: {peso})")
+    plt.title(f"Ruta evitando nodo {obstaculo}, peso total de la ruta: {peso})")
     plt.axis('off')
     plt.tight_layout()
     plt.show()
