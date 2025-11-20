@@ -10,9 +10,9 @@ final = 1
 camino = nx.shortest_path(G, source=origen, target=final, weight='weight')
 peso_total = nx.shortest_path_length(G, source=origen, target=final, weight='weight')
 
-print(f"Ruta más corta desde {origen} hasta {final}:")
+print(f"Ruta más eficiente desde el punto {origen} hasta {final}:")
 print(camino)
-print(f"Peso total: {peso_total}\n")
+print(f"Peso total de la ruta: {peso_total}\n")
 
 # Dibujar el grafo completo en gris
 plt.figure(figsize=(14, 8))
