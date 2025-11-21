@@ -1,6 +1,7 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 from grafo import G, pos
+from trafico import activar_trafico, guardar_pesos_originales, restaurar_pesos
 
 
 def ruta_con_parada(G, origen, parada, destino):
