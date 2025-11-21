@@ -132,7 +132,6 @@ for fila_idx, fila in enumerate(filas):
 
 # Funciones de visualizacion 
 def dibujar_grafo_actual():
-    """Dibuja el grafo actual con los pesos reales (tráfico o sin tráfico)."""
     plt.close('all')
     plt.figure(figsize=(14, 8))
 

@@ -1,5 +1,5 @@
 import networkx as nx
-
+import random
 def guardar_pesos_originales(G):
     """Guarda los pesos originales de todas las aristas en un diccionario."""
     pesos = {}
@@ -20,11 +20,11 @@ def activar_trafico(G):
         w = data["weight"]
 
         if w >= 4:
-            data["weight"] = w * 3 
+            data["weight"] = w * random.randint(1,3)
         elif w >= 2:
-            data["weight"] = w * 2
+            data["weight"] = w * random.randint(1,3)
         else:
-            data["weight"] = w  #el peso 1 se queda igual que antes
+            data["weight"] = w  * random.randint(1,3)
 
 
 def restaurar_pesos(G, pesos_originales):
