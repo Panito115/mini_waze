@@ -2,6 +2,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 
 def ruta_con_parada(G, pos, origen, parada, destino):
+    plt.close('all')
     """Calcula y dibuja la ruta óptima pasando por una parada definida."""
 
     # Validar rutas

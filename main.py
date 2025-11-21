@@ -1,5 +1,5 @@
 import networkx as nx
-from grafo import G, pos
+from grafo import G, pos, dibujar_grafo_actual
 from ruta_simple import ruta_simple
 from ruta_con_parada import ruta_con_parada
 from ruta_obstaculo import ruta_con_obstaculo
@@ -15,13 +15,12 @@ def mostrar_menu():
     print("3. Ruta con obstáculo")
     print("4. Activar tráfico")
     print("5. Desactivar tráfico (restaurar pesos)")
-    print("6. Mostrar grafo base")
+    print("6. Mostrar grafo actual")
     print("7. Salir")
     print("="*40)
 
 
 def main():
-    # Guarda los pesos iniciales antes de activar tráfico
     pesos_originales = guardar_pesos_originales(G)
 
     while True:
@@ -29,50 +28,39 @@ def main():
         opcion = input("Selecciona una opción: ")
 
         if opcion == "1":
-            try:
-                origen = int(input("Ingrese nodo origen: "))
-                destino = int(input("Ingrese nodo destino: "))
-                ruta_simple(G, pos, origen, destino)
-            except:
-                print("Error: ingrese nodos válidos.")
+            origen = int(input("Origen: "))
+            destino = int(input("Destino: "))
+            ruta_simple(G, pos, origen, destino)
 
         elif opcion == "2":
-            try:
-                origen = int(input("Ingrese nodo origen: "))
-                parada = int(input("Ingrese nodo de parada: "))
-                destino = int(input("Ingrese nodo destino: "))
-                ruta_con_parada(G, origen, parada, destino)
-            except:
-                print("Error: ingrese nodos válidos.")
+            origen = int(input("Origen: "))
+            parada = int(input("Parada: "))
+            destino = int(input("Destino: "))
+            ruta_con_parada(G, pos, origen, parada, destino)
 
         elif opcion == "3":
-            try:
-                origen = int(input("Ingrese nodo origen: "))
-                obstaculo = int(input("Ingrese nodo obstáculo: "))
-                destino = int(input("Ingrese nodo destino: "))
-                ruta_con_obstaculo(G, origen, obstaculo, destino)
-            except:
-                print("Error: ingrese nodos válidos.")
+            origen = int(input("Origen: "))
+            obst = int(input("Obstáculo: "))
+            destino = int(input("Destino: "))
+            ruta_con_obstaculo(G, pos, origen, obst, destino)
 
         elif opcion == "4":
             activar_trafico(G)
-            print("\n Tráfico activado. Pesos del grafo modificados.\n")
+            print("\n Tráfico activado.\n")
 
         elif opcion == "5":
             restaurar_pesos(G, pesos_originales)
-            print("\n Tráfico desactivado. Pesos originales recuperados.\n")
+            print("\nTráfico desactivado. Pesos restaurados.\n")
 
         elif opcion == "6":
-            from grafo import dibujar_grafo_base, info_grafo
-            info_grafo()
-            dibujar_grafo_base()
+            dibujar_grafo_actual()
 
         elif opcion == "7":
-            print("\n¡Gracias por usar Mini-Waze!\n")
+            print("\nGracias por usar Mini-Waze \n")
             break
 
         else:
-            print("Opción no válida, intenta de nuevo.")
+            print("Opción inválida.")
 
 
 if __name__ == "__main__":

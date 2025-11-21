@@ -2,6 +2,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 
 def ruta_con_obstaculo(G, pos, origen, obstaculo, destino):
+    plt.close('all')
     """Calcula una ruta evitando el nodo obstáculo y sus vecinos inmediatos."""
 
     vecinos = list(G.neighbors(obstaculo)) + list(G.predecessors(obstaculo))

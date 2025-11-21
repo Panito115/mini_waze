@@ -1,12 +1,12 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 
-G = nx.DiGraph() # funcion dentro de nx que hace el grafico dirigo
+G = nx.DiGraph()
 
 nodos_1_61 = list(range(1, 62))
 G.add_nodes_from(nodos_1_61)
 
-# se agrega la dirección de nodos y sus pesos
+# Agregar aristas y pesos
 G.add_edge(2, 1, weight=1)
 G.add_edge(3, 2, weight=3)
 G.add_edge(4, 3, weight=5)
@@ -102,25 +102,25 @@ G.add_edge(59, 58, weight=3)
 G.add_edge(60, 59, weight=2)
 G.add_edge(61, 60, weight=2)
 
-# se crea la ciudad visualmente
+
 filas = [
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],          
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     [11],
     [12,13,14,15,16,17,18,19],
-    [29],          
-    [20,21,22,23,24,25,26,27,28],          
-    [30,31,32,33,34],          
-    [35,36,37,38,39,40,41],       
+    [29],
+    [20,21,22,23,24,25,26,27,28],
+    [30,31,32,33,34],
+    [35,36,37,38,39,40,41],
     [42,43,44,45,46,47,48],
     [49,50,51,52,53],
-    [54,55,56,57,58,59,60,61],           
+    [54,55,56,57,58,59,60,61],
 ]
 
 pos = {}
-ancho_total = 10.0   # cantidad de nodos por anchos
+ancho_total = 10.0
 
 for fila_idx, fila in enumerate(filas):
-    y = -fila_idx            # cada fila un poquito más abajo
+    y = -fila_idx
     n = len(fila)
     if n == 1:
         xs = [ancho_total / 2]
@@ -130,63 +130,47 @@ for fila_idx, fila in enumerate(filas):
     for x, node in zip(xs, fila):
         pos[node] = (x, y)
 
-def dibujar_grafo_base():
-    """Dibuja el grafo completo sin bloquear la ejecución."""
+# Funciones de visualizacion 
+def dibujar_grafo_actual():
+    """Dibuja el grafo actual con los pesos reales (tráfico o sin tráfico)."""
+    plt.close('all')
     plt.figure(figsize=(14, 8))
 
-    # se agregan colores a los nodos
+    # Colores de POIs
     colores = []
     for node in G.nodes():
         if node == 5:
-            colores.append("yellow")  # casa presidencial
-        elif node in [8]:
-            colores.append("lightgreen")  # bar de vic
-        elif node in [29]:
-            colores.append("grey")  # almacen el cisne
-        elif node in [21]:
-            colores.append("purple")  # restaurante long wah
-        elif node in [25]:
-            colores.append("green")  # palacio nacional
-        elif node in [33]:
-            colores.append("lightblue")  # plaza de la constitucion
-        elif node in [34]:
-            colores.append("blue")  # mercado central
-        elif node in [52]:
-            colores.append("brown")  # plaza vivar
-        elif node in [53]:
-            colores.append("red")  # congreso
-        elif node in [57]:
-            colores.append("pink")  # panaderia berna
+            colores.append("yellow")
+        elif node == 8:
+            colores.append("lightgreen")
+        elif node == 29:
+            colores.append("grey")
+        elif node == 21:
+            colores.append("purple")
+        elif node == 25:
+            colores.append("green")
+        elif node == 33:
+            colores.append("lightblue")
+        elif node == 34:
+            colores.append("blue")
+        elif node == 52:
+            colores.append("brown")
+        elif node == 53:
+            colores.append("red")
+        elif node == 57:
+            colores.append("pink")
         else:
             colores.append("lightgray")
 
-    nx.draw(
-        G,
-        pos,
-        node_color=colores,
-        with_labels=True,
-        node_size=500,
-        font_size=7,
-        arrows=True,
-        arrowstyle='-|>',
-        arrowsize=15
-    )
+    nx.draw(G, pos, node_color=colores, with_labels=True,
+            node_size=500, font_size=7,
+            arrows=True, arrowstyle='-|>', arrowsize=15)
 
     edge_labels = nx.get_edge_attributes(G, "weight")
-    nx.draw_networkx_edge_labels(
-        G,
-        pos,
-        edge_labels=edge_labels,
-        font_size=7
-    )
-
-def info_grafo():
-    """Imprime el número total de nodos y aristas."""
-    print(f"Total de nodos: {G.number_of_nodes()}")
-    print(f"Total de aristas: {G.number_of_edges()}")
-
+    nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_size=7)
 
     plt.axis("off")
     plt.tight_layout()
+    
     plt.show(block=False)
     plt.pause(0.001)

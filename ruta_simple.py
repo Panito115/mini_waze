@@ -2,6 +2,8 @@ import networkx as nx
 import matplotlib.pyplot as plt
 
 def ruta_simple(G, pos, origen, destino):
+    plt.close('all')
+
     """Calcula y dibuja la ruta más corta usando Dijkstra."""
     try:
         camino = nx.shortest_path(G, source=origen, target=destino, weight='weight')
