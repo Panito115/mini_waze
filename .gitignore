@@ -1,0 +1,10 @@
+# Ignorar archivos de Python compilados
+__pycache__/
+*.pyc
+
+# Ignorar archivos temporales de macOS
+.DS_Store
+
+# Ignorar imágenes generadas accidentalmente
+*.png
+*.jpg
