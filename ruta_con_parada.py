@@ -42,7 +42,7 @@ if __name__ == "__main__":
     print("Ruta 1 (Antes de la parada):", ruta1, f"(peso={peso1})")
     print("Ruta 2 (Después de la parada):", ruta2, f"(peso={peso2})")
     print("Ruta completa:", ruta_completa)
-    print(f"Peso total: {peso_total}")
+    print(f"Peso total de la ruta: {peso_total}")
 
     # Dibujar grafo base
     plt.figure(figsize=(14, 8))
@@ -66,7 +66,7 @@ if __name__ == "__main__":
     edge_labels = nx.get_edge_attributes(G, 'weight')
     nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_size=6)
 
-    plt.title(f"Ruta con parada: {origen} - {parada} - {destino} (peso total: {peso_total})")
+    plt.title(f"Ruta con parada: {origen} - {parada} - {destino}, peso total de la ruta: {peso_total})")
     plt.axis('off')
     plt.tight_layout()
     plt.show()
