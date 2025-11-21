@@ -52,4 +52,5 @@ def ruta_con_parada(G, pos, origen, parada, destino):
     plt.title(f"Ruta con parada (Peso total: {peso_total})")
     plt.axis('off')
     plt.tight_layout()
-    plt.show()
+    plt.show(block=False)
+    plt.pause(0.001)

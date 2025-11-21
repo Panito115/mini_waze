@@ -44,4 +44,5 @@ def ruta_con_obstaculo(G, pos, origen, obstaculo, destino):
     plt.title(f"Ruta evitando nodo {obstaculo} (Peso total: {peso})")
     plt.axis('off')
     plt.tight_layout()
-    plt.show()
+    plt.show(block=False)
+    plt.pause(0.001)

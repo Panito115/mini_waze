@@ -32,4 +32,5 @@ def ruta_simple(G, pos, origen, destino):
 
     plt.title(f"Ruta más corta de {origen} a {destino} (Peso total: {peso_total})")
     plt.axis('off')
-    plt.show()
+    plt.show(block=False)
+    plt.pause(0.001)

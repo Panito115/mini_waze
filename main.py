@@ -15,7 +15,8 @@ def mostrar_menu():
     print("3. Ruta con obstáculo")
     print("4. Activar tráfico")
     print("5. Desactivar tráfico (restaurar pesos)")
-    print("6. Salir")
+    print("6. Mostrar grafo base")
+    print("7. Salir")
     print("="*40)
 
 
@@ -62,6 +63,11 @@ def main():
             print("\n Tráfico desactivado. Pesos originales recuperados.\n")
 
         elif opcion == "6":
+            from grafo import dibujar_grafo_base, info_grafo
+            info_grafo()
+            dibujar_grafo_base()
+
+        elif opcion == "7":
             print("\n¡Gracias por usar Mini-Waze!\n")
             break
 
